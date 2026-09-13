@@ -1,0 +1,19 @@
+version: 1
+applications:
+  - appRoot: 02_MA_NGUON_WEB_DAY_DU_REACT
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm ci
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: .next
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+          - .next/cache/**/*
