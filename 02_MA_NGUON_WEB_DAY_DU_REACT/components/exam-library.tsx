@@ -1,0 +1,12 @@
+import { getExamRules } from "../lib/exam";
+import type { BestScores, ExamKind } from "../types/learning";
+
+const exams: Array<{ kind: ExamKind; title: string; note: string; featured?: boolean }> = [
+  { kind: "reading", title: "Đề đọc hiểu", note: "20 câu đọc hiểu trọng tâm" },
+  { kind: "listening", title: "Đề nghe hiểu", note: "20 câu nghe hiểu ngắn" },
+  { kind: "combined", title: "Đề tổng hợp", note: "Kết hợp đọc hiểu và nghe hiểu", featured: true },
+];
+
+export function ExamLibrary({ best, onStart }: { best: BestScores; onStart: (kind: ExamKind) => void }) {
+  return <section className="page-wrap"><header className="page-title"><p className="eyebrow">THI THỬ EPS TOPIK</p><h1>Chọn đề phù hợp với bạn</h1><p>Điểm cao nhất được lưu trên thiết bị này để bạn nhìn thấy tiến bộ của mình.</p></header><section className="rules" aria-label="Quy tắc làm bài"><span>20–40 câu hỏi</span><span>25–50 phút</span><span>5 điểm mỗi câu</span><span>Điểm đậu từ 75%</span></section><section className="exam-grid">{exams.map((exam, index) => { const rules = getExamRules(exam.kind); const score = best[exam.kind]; const percent = Math.min(100, Math.round((score / rules.passingScore) * 100)); return <article key={exam.kind} className={exam.featured ? "featured" : ""}><div className="exam-cover"><span>{index + 1}</span><small>EPS TOPIK</small><b>{exam.title}</b><i>{exam.note}</i></div><div className="exam-info"><span className="tag">{rules.questionCount} CÂU</span><h2>{exam.title}</h2><p>{rules.durationSeconds / 60} phút · Mục tiêu {rules.passingScore} điểm</p><div className="score-line"><b>Điểm cao nhất</b><strong>{score}/{rules.maximumScore}</strong></div><div className="unlock" role="progressbar" aria-label={`Tiến độ ${percent}%`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={percent}><i style={{ width: `${percent}%` }} /></div><small>{score > 0 ? `Bạn đã mở ${percent}% mục tiêu` : "Làm bài để mở dấu mốc đầu tiên"}</small><button type="button" onClick={() => onStart(exam.kind)}>Bắt đầu đề</button></div></article>; })}</section><section className="locked-row"><article><span>🔒</span><div><b>Đề theo chủ đề</b><small>Mở sau khi hoàn thành đề đầu tiên.</small></div></article><article><span>🔒</span><div><b>Thử thách tốc độ</b><small>Đang được chuẩn bị.</small></div></article><article><span>🔒</span><div><b>Báo cáo chi tiết</b><small>Sẽ có ở phiên thi sau.</small></div></article></section></section>;
+}

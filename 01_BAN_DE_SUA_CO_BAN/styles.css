@@ -1,0 +1,174 @@
+/* ================================================================
+   1. BẢNG MÀU - MUỐN ĐỔI GIAO DIỆN HÃY SỬA Ở ĐÂY
+   ================================================================ */
+:root {
+  --yellow: #f8d965;
+  --yellow-dark: #e4b92f;
+  --cream: #fffaf0;
+  --white: #fffefa;
+  --black: #252318;
+  --gray: #716f61;
+  --border: #e8e0ca;
+  --blue: #cfe7ea;
+  --green: #dfeccc;
+  --coral: #ffddd4;
+  --shadow: 0 16px 40px rgba(70, 57, 20, 0.09);
+}
+
+/* 2. CÀI ĐẶT CHUNG */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); color: var(--black); font-family: "Segoe UI", "Noto Sans KR", Arial, sans-serif; }
+button, input { font: inherit; }
+button { cursor: pointer; color: inherit; }
+.hidden { display: none !important; }
+.eyebrow { margin: 0 0 12px; color: #9b7910; font-size: 12px; font-weight: 900; letter-spacing: 0.15em; }
+.primary { border: 1px solid var(--black); border-radius: 11px; padding: 13px 18px; background: var(--black); color: white; font-weight: 800; }
+.secondary { border: 1px solid #cfc5aa; border-radius: 11px; padding: 13px 18px; background: transparent; font-weight: 800; }
+
+/* 3. MENU */
+.header { height: 78px; padding: 0 max(24px, calc((100vw - 1180px) / 2)); display: flex; align-items: center; gap: 28px; position: sticky; top: 0; z-index: 20; background: rgba(255, 250, 240, 0.95); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
+.logo { border: 0; background: transparent; display: flex; align-items: center; gap: 10px; }
+.logo span { width: 42px; height: 42px; display: grid; place-items: center; border: 2px solid var(--black); border-radius: 12px; background: var(--yellow); font-weight: 1000; box-shadow: 3px 3px 0 var(--black); transform: rotate(-3deg); }
+.logo b { font-size: 19px; letter-spacing: 0.1em; }
+.header nav { flex: 1; display: flex; justify-content: center; gap: 5px; }
+.nav-button { padding: 28px 13px 24px; border: 0; background: transparent; color: var(--gray); font-size: 14px; font-weight: 700; position: relative; }
+.nav-button.active { color: var(--black); }
+.nav-button.active::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 16px; height: 4px; border-radius: 5px; background: var(--yellow); }
+.student { border: 1px solid var(--border); border-radius: 999px; background: white; padding: 10px 14px; font-weight: 700; }
+
+/* 4. TRANG CHỦ */
+.hero { max-width: 1180px; min-height: 570px; margin: auto; padding: 65px 20px; display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+.hero h1, .page-title h1, .result h1 { margin: 0 0 22px; font: 60px/1.08 Georgia, "Noto Serif KR", serif; letter-spacing: -0.04em; }
+.hero h1 em { font-style: normal; background: linear-gradient(transparent 70%, var(--yellow) 0); }
+.hero > div > p:not(.eyebrow) { max-width: 580px; color: var(--gray); font-size: 18px; line-height: 1.7; }
+.actions { display: flex; gap: 10px; margin-top: 28px; }
+.hero-art { height: 420px; display: grid; place-items: center; position: relative; }
+.hero-art::before { content: ""; position: absolute; width: 350px; height: 350px; border-radius: 50%; background: #f7e69b; }
+.bubble { width: 300px; height: 350px; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 2px solid var(--black); border-radius: 140px 140px 25px 25px; background: white; box-shadow: 12px 12px 0 #dfc34f; font-size: 30px; text-align: center; }
+.bubble b { font-size: 40px; }
+.bubble span { display: block; font-size: 80px; margin: 15px; }
+.bubble small { font-size: 12px; font-weight: 800; }
+.section { max-width: 1180px; margin: auto; padding: 65px 20px 90px; }
+.section h2 { margin: 0 0 28px; font: 38px Georgia, serif; }
+.feature-grid, .topic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.feature-card { min-height: 230px; padding: 22px; text-align: left; border: 1px solid var(--border); border-radius: 18px; background: white; transition: 0.2s; }
+.feature-card:hover { transform: translateY(-5px); background: #fff5bd; box-shadow: var(--shadow); }
+.feature-card > span { color: #caaa32; font: 38px Georgia, serif; }
+.feature-card h3 { margin-top: 25px; font-size: 20px; }
+.feature-card p { min-height: 48px; color: var(--gray); line-height: 1.5; }
+
+/* 5. TRANG NỘI DUNG */
+.page { max-width: 1120px; min-height: 750px; margin: auto; padding: 65px 20px 100px; }
+.page-title { max-width: 760px; margin: 0 auto 42px; text-align: center; }
+.page-title h1 { font-size: 44px; }
+.page-title > p:last-child { color: var(--gray); font-size: 17px; line-height: 1.6; }
+.topic-grid { grid-template-columns: repeat(3, 1fr); }
+.topic-card { position: relative; padding: 22px; border: 1px solid var(--border); border-radius: 20px; background: white; }
+.topic-icon { width: 65px; height: 65px; display: grid; place-items: center; margin-bottom: 20px; border-radius: 17px; background: #fff0aa; font-size: 27px; font-weight: 900; }
+.topic-card > span { position: absolute; top: 22px; right: 22px; padding: 6px 9px; border-radius: 999px; background: #f3eedf; font-size: 11px; font-weight: 800; }
+.topic-card h2 { margin-bottom: 5px; font-size: 20px; }
+.topic-card > p { min-height: 45px; color: var(--gray); }
+.book-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; }
+.book-tabs button { padding: 18px; display: grid; gap: 4px; border: 1px solid var(--border); border-radius: 14px; background: white; }
+.book-tabs button.active { border: 2px solid var(--black); background: #fff2ae; box-shadow: 4px 4px 0 var(--black); }
+.book-tabs b { font-size: 19px; }
+.book-tabs span { color: var(--gray); }
+.unit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.unit-grid > button { padding: 13px 15px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 13px; text-align: left; border: 1px solid var(--border); border-radius: 14px; background: white; }
+.unit-grid > button:hover { border-color: #c5ac3e; background: #fff9dc; }
+.unit-grid > button > span { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 11px; background: #f5df7a; font-weight: 900; }
+.unit-grid > button > div { display: grid; gap: 4px; }
+.unit-grid small { color: var(--gray); }
+
+/* 6. BÀI HỌC */
+.back { margin-bottom: 25px; border: 0; background: transparent; font-weight: 800; }
+.lesson > h2 { margin-top: 45px; font: 30px Georgia, serif; }
+.word-list { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.word-list p { margin: 0; padding: 12px 16px; display: grid; grid-template-columns: 40px 1fr 1fr auto; border-top: 1px solid var(--border); background: white; }
+.word-list p:first-child { border-top: 0; }
+.word-list p span { color: #a4861e; }
+.word-list p em { color: var(--gray); font-style: normal; }
+.word-list button { border: 0; background: transparent; font-size: 19px; }
+.grammar-box { margin-bottom: 10px; padding: 18px; border: 1px solid var(--border); border-radius: 14px; background: white; }
+.grammar-box h3 { margin: 0 0 7px; }
+.grammar-box p { color: var(--gray); }
+blockquote { margin: 0; padding: 20px; border-left: 5px solid var(--yellow-dark); background: #f5efdf; font-size: 19px; line-height: 1.7; }
+.locked { margin-top: 38px; padding: 30px; text-align: center; border: 1px dashed #aaa087; border-radius: 16px; background: #f3eddf; }
+.locked > span { font-size: 35px; }
+
+/* 7. PHÒNG THI */
+.exam-card { max-width: 720px; margin: auto; display: grid; grid-template-columns: 0.8fr 1.2fr; overflow: hidden; border: 2px solid var(--black); border-radius: 22px; background: white; box-shadow: 7px 7px 0 var(--yellow); }
+.exam-card > div { min-height: 300px; padding: 25px; display: flex; flex-direction: column; justify-content: flex-end; background: var(--yellow); }
+.exam-card > div span { margin-bottom: auto; font: 58px Georgia, serif; }
+.exam-card > div small { font-weight: 900; letter-spacing: 0.12em; }
+.exam-card > div b { margin: 5px 0; font-size: 26px; }
+.exam-card > div i { font-style: normal; }
+.exam-card > section { padding: 35px; display: grid; gap: 12px; align-content: center; }
+.exam-card h2, .exam-card p { margin: 0; }
+.exam-card section > button { margin-top: 15px; }
+.locked-exams { max-width: 720px; margin: 22px auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.locked-exams span { padding: 18px; text-align: center; border: 1px dashed #b9af97; border-radius: 12px; }
+.exam-screen { min-height: calc(100vh - 78px); background: #f3eddf; }
+.exam-screen > header { height: 70px; padding: 0 max(20px, calc((100vw - 900px) / 2)); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: white; }
+.exam-screen header button { border: 0; background: transparent; text-align: left; }
+.exam-screen header strong { text-align: right; font-size: 19px; }
+.progress { height: 5px; background: #e2dac5; }
+.progress i { display: block; height: 100%; background: var(--yellow-dark); }
+.question { width: min(780px, calc(100% - 32px)); margin: 45px auto; padding: 35px 45px; border: 1px solid var(--border); border-radius: 20px; background: white; box-shadow: var(--shadow); }
+.question > p { color: var(--gray); font-size: 12px; font-weight: 800; }
+.question > h2 { margin: 25px 0; line-height: 1.55; }
+.question > img { max-width: 220px; max-height: 160px; display: block; margin: 15px auto; object-fit: contain; }
+.options { display: grid; gap: 9px; }
+.options button { padding: 12px; display: flex; align-items: center; gap: 12px; text-align: left; border: 1px solid var(--border); border-radius: 11px; background: white; }
+.options button span { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; background: #eee8d9; font-weight: 800; }
+.options button.selected { border: 2px solid var(--black); background: #fff5bd; }
+.options button.selected span { background: var(--yellow); }
+.next { width: 100%; margin-top: 22px; }
+
+/* 8. KẾT QUẢ VÀ CHỮA ĐỀ */
+.result { max-width: 720px; margin: 65px auto; padding: 45px; text-align: center; border: 1px solid var(--border); border-radius: 24px; background: white; }
+.score { width: 155px; height: 155px; margin: 0 auto 25px; padding-top: 43px; border: 8px solid #adc781; border-radius: 50%; background: var(--green); font: 52px Georgia, serif; }
+.score small { font: 17px "Segoe UI"; }
+.result h1 { font-size: 36px; }
+.result > p:not(.eyebrow) { color: var(--gray); }
+.result > div:last-child { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
+.review-list { display: grid; gap: 12px; margin-bottom: 25px; }
+.review-list article { padding: 20px; border: 1px solid var(--border); border-left: 6px solid #c86856; border-radius: 13px; background: white; }
+.review-list article.correct { border-left-color: #7fa24f; }
+.review-list h3 { margin-top: 0; }
+.review-list article > div { padding: 13px; border-radius: 10px; background: #fff3b8; }
+
+/* 9. HỘP MUA GÓI */
+.modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px; background: rgba(30, 26, 16, 0.65); }
+.modal-card { width: min(450px, 100%); padding: 38px; position: relative; text-align: center; border-radius: 22px; background: white; }
+.close { position: absolute; top: 12px; right: 17px; border: 0; background: transparent; font-size: 28px; }
+.lock { font-size: 45px; }
+.modal-card h2 { margin: 8px 0; font: 32px Georgia, serif; }
+.modal-card > p:not(.eyebrow) { color: var(--gray); line-height: 1.6; }
+
+/* 10. ĐIỆN THOẠI */
+@media (max-width: 850px) {
+  .header { padding: 0 15px; }
+  .header nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; overflow-x: auto; justify-content: flex-start; border-top: 1px solid var(--border); background: white; }
+  .nav-button { padding: 15px; white-space: nowrap; }
+  .nav-button.active::after { bottom: 5px; }
+  .student { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-art { display: none; }
+  .feature-grid, .topic-grid { grid-template-columns: 1fr 1fr; }
+  .unit-grid { grid-template-columns: 1fr; }
+  body { padding-bottom: 58px; }
+}
+
+@media (max-width: 560px) {
+  .logo b { display: none; }
+  .hero h1 { font-size: 42px; }
+  .actions, .result > div:last-child { display: grid; }
+  .feature-grid, .topic-grid, .book-tabs { grid-template-columns: 1fr; }
+  .page-title h1 { font-size: 36px; }
+  .exam-card { grid-template-columns: 1fr; }
+  .exam-card > div { min-height: 210px; }
+  .locked-exams { grid-template-columns: 1fr; }
+  .question { padding: 25px 20px; }
+}
