@@ -46,7 +46,3 @@ Khi sửa câu hỏi nghe, cập nhật đồng bộ câu hỏi và mốc `start
 
 - `app/globals.css` là stylesheet toàn cục: biến màu ở đầu file, bố cục, typography, trạng thái focus và responsive styles.
 - Hãy ưu tiên sửa biến CSS trong `:root` khi đổi hệ màu chung; sửa các selector tương ứng khi cần thay đổi một khu vực cụ thể.
-
-## Tham chiếu giao diện HTML
-
-`../TAPA_LUYEN_THI_EPS_TOPIK.html` chỉ dùng để đối chiếu hình ảnh/ý tưởng giao diện. Nó không phải là một phần của ứng dụng React, không được nhập vào mã nguồn và không phải nơi để cập nhật nội dung hoặc assets của ứng dụng.

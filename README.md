@@ -1,11 +1,9 @@
-# TAPA – bộ mã nguồn dễ chỉnh sửa
+# TAPA – LUYỆN THI EPS TOPIK
 
-Repository gồm hai phiên bản của giao diện TAPA EPS-TOPIK:
+Ứng dụng web luyện thi EPS-TOPIK, xây dựng bằng Next.js/React với TypeScript, ESLint và Vitest. Mã nguồn nằm trong thư mục `02_MA_NGUON_WEB_DAY_DU_REACT`.
 
-- `01_BAN_DE_SUA_CO_BAN`: bản HTML/CSS/JavaScript độc lập, phù hợp để học và chỉnh sửa cơ bản.
-- `02_MA_NGUON_WEB_DAY_DU_REACT`: ứng dụng Next.js/React đầy đủ, có TypeScript, ESLint và Vitest. Đây là bản cần dùng khi phát triển website.
-
-`TAPA_LUYEN_THI_EPS_TOPIK.html` chỉ là **tài liệu tham chiếu hình ảnh**. Không chạy, không chỉnh sửa, và không dùng file này làm nguồn dữ liệu hoặc mã cho ứng dụng React.
+Ứng dụng đã được triển khai trên AWS Amplify Hosting (S3 + CloudFront):
+<https://main.d3lz6ead3g8gpe.amplifyapp.com/>
 
 ## Chạy ứng dụng React
 
@@ -25,14 +23,6 @@ npm test
 npm run build
 ```
 
+`npm run build` xuất bản tĩnh ra thư mục `out/` (cấu hình `output: "export"`), đây cũng là nội dung được AWS Amplify phục vụ.
+
 Xem hướng dẫn chi tiết về cấu trúc và các điểm cần sửa trong [README_REACT.md](02_MA_NGUON_WEB_DAY_DU_REACT/README_REACT.md).
-
-## Bản HTML/CSS/JavaScript cơ bản
-
-Mở `01_BAN_DE_SUA_CO_BAN/index.html` bằng trình duyệt, hoặc mở thư mục này bằng VS Code và dùng Live Server. Các điểm chỉnh sửa chính:
-
-- `index.html`: cấu trúc và tiêu đề trang.
-- `styles.css`: màu sắc, font, khoảng cách và giao diện.
-- `data.js`: dữ liệu bài học, từ vựng và câu hỏi.
-- `app.js`: hành vi chuyển mục, làm bài, tính điểm và khóa nội dung.
-- `assets/`: hình ảnh và audio của bản HTML.
