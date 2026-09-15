@@ -1,6 +1,6 @@
 version: 1
 applications:
-  - appRoot: 02_MA_NGUON_WEB_DAY_DU_REACT
+  - appRoot: tapa-fe
     frontend:
       phases:
         preBuild:
